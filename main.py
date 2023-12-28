@@ -13,5 +13,5 @@ async def say_hello(name: str):
     return {"message": f"Hello {name}"}
 
 
-if __name__ == 'main':
+#if __name__ == 'main':
 
