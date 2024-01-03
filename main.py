@@ -3,9 +3,9 @@ from fastapi import FastAPI
 app = FastAPI()
 
 
-@app.get("/hotels")
-async def get_hotels():
-    return {"Hotel 5 stars"}
+@app.get("/hotels/{hotel_id}")
+async def get_hotels(hotel_id: int, date_from, date_to):
+    return f"Hotel - {hotel_id}"
 
 
 @app.get("/hello/{name}")
