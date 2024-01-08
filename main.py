@@ -7,6 +7,13 @@ from pydantic import BaseModel
 app = FastAPI()
 
 
+class SHotel(BaseModel):
+    address: str
+    name: str
+    stars: int
+
+list[SHotel]
+
 @app.get("/hotels")
 async def get_hotels(
         location: str,
@@ -15,6 +22,13 @@ async def get_hotels(
         has_spa: Optional[bool] = None,
         stars: Optional[int] = Query(None, ge=1, le=5),
         ):
+    hotels = [
+        {
+            "address": "вул. Наукова, 1",
+            "name": "Super Hotel",
+            "stars": 5
+        },
+    ]
     return date_from, date_to
 
 
