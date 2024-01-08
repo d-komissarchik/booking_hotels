@@ -3,7 +3,6 @@ from typing import Optional
 from datetime import date
 from pydantic import BaseModel
 
-
 app = FastAPI()
 
 
@@ -14,22 +13,16 @@ class SHotel(BaseModel):
 
 
 
-@app.get("/hotels", response_model=list[SHotel])
-async def get_hotels(
-        location: str,
-        date_from: date,
-        date_to: date,
-        has_spa: Optional[bool] = None,
-        stars: Optional[int] = Query(None, ge=1, le=5),
-        ):
-    hotels = [
-        {
-            "address": "вул. Наукова, 1",
-            "name": "Super Hotel",
-            "stars": 5
-        },
-    ]
-    return date_from, date_to
+@app.get("/hotels")
+def get_hotels(
+    location: str,
+    date_from: date,
+    date_to: date,
+    has_spa: Optional[bool] = None,
+    stars: Optional[int] = Query(None, ge=1, le=5),
+) -> list[SHotel]:
+    hotels = [{"address": "вул. Наукова, 1", "name": "Super Hotel", "stars": 5}]
+    return hotels
 
 
 class SBooking(BaseModel):
@@ -38,23 +31,13 @@ class SBooking(BaseModel):
     date_to: date
 
 
-
 @app.post("/bookings")
 def add_booking(booking: SBooking):
     pass
-
-
-
-
-
 
 # @app.get("/hello/{name}")
 # async def say_hello(name: str):
 #     return {"message": f"Hello {name}"}
 
 
-
-
-
-#if __name__ == 'main':
-
+# if __name__ == 'main':
