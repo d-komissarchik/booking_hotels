@@ -12,9 +12,9 @@ class SHotel(BaseModel):
     name: str
     stars: int
 
-list[SHotel]
 
-@app.get("/hotels")
+
+@app.get("/hotels", response_model=list[SHotel])
 async def get_hotels(
         location: str,
         date_from: date,
