@@ -29,7 +29,7 @@ class HotelsSearchArgs:
 
 
 
-@app.get("/hotels")
+@app.get("hotels")
 def get_hotels(
     search_args: HotelsSearchArgs = Depends()
 ):# -> list[SHotel]
