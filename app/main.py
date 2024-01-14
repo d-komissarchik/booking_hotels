@@ -22,6 +22,7 @@ class HotelsSearchArgs:
         self.stars = stars
 
 
+
 # class SHotel(BaseModel):
 #     address: str
 #     name: str
