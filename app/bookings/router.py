@@ -20,4 +20,7 @@ async def get_bookings():
 
 
 
-
+# @router.get("")
+# async def get_bookings():
+#     result = BookingService.get_all_bookings()
+#     return result
