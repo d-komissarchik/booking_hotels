@@ -5,7 +5,7 @@ from app.bookings.models import Bookings
 
 class BookingDAO:
     @classmethod
-    def find_all(cls):
+    async def find_all(cls):
         async with async_session_maker() as session:
             query = select(Bookings)
             bookings = await session.execute(query)
