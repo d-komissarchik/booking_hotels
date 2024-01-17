@@ -1,8 +1,6 @@
 from fastapi import APIRouter
-from sqlalchemy import select
 
-
-from app.bookings.models import Bookings
+from app.bookings.dao import BookingDAO
 
 
 router = APIRouter(
@@ -10,11 +8,10 @@ router = APIRouter(
     tags=["Бронювання"],
 )
 
+
 @router.get("")
 async def get_bookings():
-    pass
-    # result = BookingService.get_all_bookings()
-    # return result
+    return BookingDAO.find_all()
 
 
 # @router.get("")
