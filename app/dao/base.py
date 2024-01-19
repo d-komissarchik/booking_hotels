@@ -10,7 +10,7 @@ class BaseDAO():
         async with async_session_maker() as session:
             query = select(cls.model).filter_by(**filter_by)
             result = await session.execute(query)
-            return result.mappings().all()
+            return result.mappings().first()
 
     @classmethod
     async def find_all(cls, **filter_by):
@@ -18,3 +18,21 @@ class BaseDAO():
             query = select(cls.model).filter_by(**filter_by)
             result = await session.execute(query)
             return result.mappings().all()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
