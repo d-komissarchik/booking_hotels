@@ -12,9 +12,6 @@ class BaseDAO():
             result = await session.execute(query)
             return result.mappings().first()
 
-
-
-
     @classmethod
     async def find_one_or_none(cls, **filter_by):
         async with async_session_maker() as session:
@@ -28,21 +25,3 @@ class BaseDAO():
             query = select(cls.model).filter_by(**filter_by)
             result = await session.execute(query)
             return result.mappings().all()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
