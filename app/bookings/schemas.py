@@ -1,11 +1,14 @@
+from datetime import date
+
+from pydantic import BaseModel
 
 
-
-id
-room_id
-user_id
-date_from
-date_to
-price
-total_cost
-total_days
+class Sbooking(BaseModel):
+    id: int
+    room_id: int
+    user_id: int
+    date_from: date
+    date_to: date
+    price: int
+    total_cost: int
+    total_days: int
