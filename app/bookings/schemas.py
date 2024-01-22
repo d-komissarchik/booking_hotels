@@ -12,7 +12,6 @@ class SBooking(BaseModel):
     total_cost: int
     total_days: int
 
-    class Config:
-        orm_mode = True
-        #from_attributes = True
-
+    # class Config:
+    #     orm_mode = True
+        # from_attributes = True

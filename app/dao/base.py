@@ -1,8 +1,9 @@
+from app.bookings.models import Bookings
 from app.database import async_session_maker
 from sqlalchemy import select
 
 
-class BaseDAO():
+class BaseDAO:
     model = None
 
     @classmethod
