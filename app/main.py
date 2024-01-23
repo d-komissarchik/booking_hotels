@@ -52,9 +52,4 @@ class SBooking(BaseModel):
 def add_booking(booking: SBooking):
     pass
 
-# @app.get("/hello/{name}")
-# async def say_hello(name: str):
-#     return {"message": f"Hello {name}"}
 
-
-# if __name__ == 'main':
