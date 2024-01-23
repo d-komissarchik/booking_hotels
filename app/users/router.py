@@ -5,3 +5,6 @@ router = APIRouter(
     tags=["Auth & Користувачи"]
 )
 
+@router.post("/register")
+async def register_user():
+    pass
