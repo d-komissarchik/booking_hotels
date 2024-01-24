@@ -29,13 +29,6 @@ class HotelsSearchArgs:
 
 
 
-# class SHotel(BaseModel):
-#     address: str
-#     name: str
-#     stars: int
-
-
-
 @app.get("hotels")
 def get_hotels(
     search_args: HotelsSearchArgs = Depends()
