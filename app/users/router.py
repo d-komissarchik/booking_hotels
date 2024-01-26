@@ -22,11 +22,11 @@ async def register_user(user_data: SUserAuth):
 
 @router.post("/login")
 async def login_user(user_data: SUserAuth):
-    user = await UsersDAO.find_one_or_none(email=user_data.email)
-    if not user:
-        raise HTTPException(500)
-    if user:
-        password_is_valid = verify_password(user_data.password, user.password)
-        if not password_is_valid:
-            raise HTTPException(500)
-
+    # user = await UsersDAO.find_one_or_none(email=user_data.email)
+    # if not user:
+    #     raise HTTPException(500)
+    # if user:
+    #     password_is_valid = verify_password(user_data.password, user.password)
+    #     if not password_is_valid:
+    #         raise HTTPException(500)
+    pass
