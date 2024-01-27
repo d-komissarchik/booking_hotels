@@ -31,4 +31,4 @@ class AlgorithmKey(BaseSettings):
         env_file = ".env"
 
 
-algorithm_key = AlgorithmKey()
+info = AlgorithmKey()
