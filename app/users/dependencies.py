@@ -1,4 +1,4 @@
-from fastapi import Request, HTTPException
+from fastapi import Request, HTTPException, Depends
 
 
 def get_token(request: Request):
@@ -8,5 +8,5 @@ def get_token(request: Request):
     return token
 
 
-def get_current_user(token):
+def get_current_user(token:str = Depends(get_token)):
     return  "user"
