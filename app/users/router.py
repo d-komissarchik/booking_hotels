@@ -26,6 +26,17 @@ async def login_user(response: Response, user_data: SUserAuth):
     user = await authenticate_user(user_data.email, user_data.password)
     if not user:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
-    access_token = create_access_token({"sub": str(user.id)}) #str(user.id)
+    access_token = create_access_token({"sub": str(user.id)})
     response.set_cookie("booking_access_token", access_token, httponly=True)
     return {"access_token": access_token}
+
+
+# @router.post("/login")
+# async def login_user(user_data: SUserAuth):
+#     user = await UsersDAO.find_one_or_none(email=user_data.email)
+#     if not user:
+#         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
+#     if user:
+#         password_is_valid = verify_password(user_data.password, user.hashed_password)
+#         if not password_is_valid:
+#             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
