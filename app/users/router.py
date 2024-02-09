@@ -31,12 +31,7 @@ async def login_user(response: Response, user_data: SUserAuth):
     return {"access_token": access_token}
 
 
-# @router.post("/login")
-# async def login_user(user_data: SUserAuth):
-#     user = await UsersDAO.find_one_or_none(email=user_data.email)
-#     if not user:
-#         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
-#     if user:
-#         password_is_valid = verify_password(user_data.password, user.hashed_password)
-#         if not password_is_valid:
-#             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
+@router.post("/logout")
+async def logout_user(response: Response):
+    response.delete_cookie("booking_access_token")
+
