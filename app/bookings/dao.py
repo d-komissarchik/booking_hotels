@@ -20,7 +20,12 @@ class BookingDAO(BaseDAO):
             and_(
                 Bookings.room_id==1,
                 or_(
+                    and_(
+                        Bookings.date_from >= date_from,
+                        Bookings.date_from <= date_to
+                    ),
 
+                    ),
                 )
             )
         )
