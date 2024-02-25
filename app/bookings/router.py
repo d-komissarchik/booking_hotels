@@ -19,10 +19,10 @@ async def get_bookings(user: Users = Depends(get_current_user)):
 
 @router.post("")
 async def add_booking(
-        room_id: int, date_from: date, date_to: date,
+        user_id: int, room_id: int, date_from: date, date_to: date,
         user: Users = Depends(get_current_user),
 ):
-    await BookingDAO.add(room_id, date_from, date_to)
+    await BookingDAO.add(user_id, room_id, date_from, date_to)
 
 
 
