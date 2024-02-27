@@ -35,7 +35,7 @@ class BookingDAO(BaseDAO):
                 )
             ).cte("booked_rooms")
 
-            rooms_left = select(
+            get_rooms_left = select(
                 (Rooms.quantity - func.count(booked_rooms.c.room_id)).label("rooms_left")
                 ).select_from(Rooms).join(
                 booked_rooms, booked_rooms.c.room_id == Rooms.id
@@ -44,5 +44,6 @@ class BookingDAO(BaseDAO):
                 )
             print(rooms_left.compile(engine, compile_kwargs={"literal_binds": True}))
 
-            room_left = await session.execute(rooms_left)
-            print(room_left.mappings())
+            room_left = await session.execute(get_rooms_left)
+            room_left = room_left.mappings()
+
