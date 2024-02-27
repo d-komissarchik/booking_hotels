@@ -42,8 +42,17 @@ class BookingDAO(BaseDAO):
                 ).where(Rooms.id == room_id).group_by(
                     Rooms.quantity, booked_rooms.c.room_id
                 )
-            print(rooms_left.compile(engine, compile_kwargs={"literal_binds": True}))
+            print(get_rooms_left.compile(engine, compile_kwargs={"literal_binds": True}))
 
             room_left = await session.execute(get_rooms_left)
-            room_left = room_left.mappings()
+            room_left: int = room_left.mappings()
 
+            if room_left > 0:
+                get_price = select(Rooms.price).filter_by(id=room_id)
+                price = await session.execute(get_price)
+                price: int = price.mappings()
+                add_booking = insert(Bookings).values(
+
+                )
+            else:
+                return None
