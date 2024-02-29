@@ -51,7 +51,11 @@ class BookingDAO(BaseDAO):
                 price = await session.execute(get_price)
                 price: int = price.mappings()
                 add_booking = insert(Bookings).values(
-
+                    room_id=room_id,
+                    user_id=user_id,
+                    date_from=date_from,
+                    date_to=date_to,
+                    price=price,
                 )
             else:
                 return None
