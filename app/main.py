@@ -3,9 +3,6 @@ from typing import Optional
 from datetime import date
 from pydantic import BaseModel
 
-
-
-
 from app.bookings.router import router as router_bookings
 from app.users.router import router as router_users
 
@@ -31,14 +28,12 @@ class HotelsSearchArgs:
         self.stars = stars
 
 
-
 @app.get("hotels")
 def get_hotels(
-    search_args: HotelsSearchArgs = Depends()
-):# -> list[SHotel]
-    #hotels = [{"address": "вул. Наукова, 1", "name": "Super Hotel", "stars": 5}]
+        search_args: HotelsSearchArgs = Depends()
+):  # -> list[SHotel]
+    # hotels = [{"address": "вул. Наукова, 1", "name": "Super Hotel", "stars": 5}]
     return search_args
-
 
 # class SBooking(BaseModel):
 #     room_id: int
@@ -48,5 +43,3 @@ def get_hotels(
 # @app.post("/bookings")
 # def add_booking(booking: SBooking):
 #     pass
-
-

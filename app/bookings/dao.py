@@ -56,6 +56,10 @@ class BookingDAO(BaseDAO):
                     date_from=date_from,
                     date_to=date_to,
                     price=price,
-                )
+                ).returning(Bookings)
+
+                new_booking = await session.execute(add_booking)
+                await session.commit()
+                return new_booking.mappings()
             else:
                 return None
