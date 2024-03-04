@@ -7,6 +7,7 @@ from app.bookings.schemas import SBooking
 
 from app.users.dependencies import get_current_user
 from app.users.models import Users
+from fastapi import BackgroundTasks
 
 router = APIRouter(
     prefix="/bookings",

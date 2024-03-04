@@ -36,3 +36,8 @@ class IncorrectTokenFormatException(BookingExceptions):
 
 class UserIsNotPresentException(BookingExceptions):
     status_code = status.HTTP_401_UNAUTHORIZED
+
+
+class RoomCannotBeBooked(BookingExceptions):
+    status_code = status.HTTP_409_CONFLICT,
+    detail = "Не залишилось свободних номерiв"
